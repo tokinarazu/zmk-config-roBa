@@ -97,7 +97,7 @@
         SYMBOL {
             bindings = <
 &kp QUESTION     &kp LESS_THAN   &kp GREATER_THAN  &kp SEMICOLON  &kp GRAVE                              &kp AMPERSAND  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp UNDERSCORE  &kp PERCENT
-&kp EXCLAMATION  &kp UNDERSCORE  &kp EQUAL         &kp PLUS       &kp SINGLE_QUOTE   &trans      &trans  &kp PIPE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp PERCENT
+&kp EXCLAMATION  &kp UNDERSCORE  &kp EQUAL         &kp PLUS       &kp SINGLE_QUOTE   &trans      &trans  &kp PIPE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp HASH
 &kp CARET        &kp SLASH       &kp ASTERISK      &kp BACKSLASH  &kp DOUBLE_QUOTES  &trans      &trans  &kp TILDE      &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR      &kp AT_SIGN
 &trans           &trans          &trans            &bootloader    &trans             &trans      &trans  &trans                                                                      &trans
             >;
