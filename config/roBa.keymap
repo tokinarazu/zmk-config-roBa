@@ -44,7 +44,7 @@
 };
 
 &mkp_input_listener {
-    input_processors = <&zip_temp_layer MOUSE 250>;
+    input-processors = <&zip_temp_layer MOUSE 250>;
 };
 
 / {
@@ -89,7 +89,7 @@
     behaviors {
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
+            display-name = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
 
             #binding-cells = <2>;
@@ -120,9 +120,9 @@
 
         minus_jis: minus_jis {
             compatible = "zmk,behavior-mod-morph";
-            label = "MINUS_JIS";
             #binding-cells = <0>;
             bindings = <&kp MINUS>, <&kp JP_UNDERSCORE>;
+            display-name = "MINUS_JIS";
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };   
     };
