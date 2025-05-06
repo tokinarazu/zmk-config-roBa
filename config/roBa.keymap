@@ -126,7 +126,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
-            tap-ms = <100>
+            tap-ms = <100>;
             bindings
                 = <&macro_press   &kp LALT>
                 , <&macro_tap     &kp TAB>
@@ -140,7 +140,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
-            tap-ms = <100>
+            tap-ms = <100>;
             bindings
                 = <&macro_press   &kp LGUI>
                 , <&macro_tap     &kp TAB>
