@@ -11,16 +11,16 @@
     34 35 36
 
 #define RIGHT_HAND_KEYS  \
-                          5  6  7  8  9    \
+                             5  6  7  8  9 \
                          16 17 18 19 20 21 \
                          28 29 30 31 32 33 \
-                                        37
+                                        42
 
 #define LEFT_THUMB_KEYS  \
-             38 39 40 
+             37 38 39 
 
 #define RIGHT_THUMB_KEYS \
-                         41 42
+                         40 41
 
 #define US_DEFAULT_LAYER 0
 #define US_NUM 1
@@ -286,7 +286,7 @@
 &kp ESC           &kp LG(SPACE)  &kp END        &kp LC(END)  &trans                               &trans         &kp HOME        &kp UP_ARROW    &kp END          &none
 &kp HOME          &kp LC(HOME)   &kp PAGE_UP    &kp LC(F3)   &kp LA(F5)  &trans      &trans       &kp BACKSPACE  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none
 &none             &none          &kp PAGE_DOWN  &none        &trans      &trans      &trans       &kp DEL        &mkp LCLK       &mkp MCLK       &mkp RCLK        &none
-&kp LEFT_CONTROL  &trans         &trans         &trans       &trans      &trans      &key_repeat  &trans                                                          &kp K_MUTE
+&kp LEFT_CONTROL  &trans         &task_switch   &trans       &trans      &trans      &key_repeat  &trans                                                          &kp K_MUTE
             >;
         };
 
