@@ -186,7 +186,7 @@
 &kp Q            &kp W            &kp E              &kp R                &kp T                                             &kp Y        &kp U                &kp I               &kp O            &lt 2 P
 &mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F   &kp G        &kp LS(LG(S))         &kp HOME       &kp H        &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt 6 MINUS
 &kp Z            &kp X            &kp C              &kp V                &kp B        &kp ESC               &kp END        &kp N        &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo 8            &caps_word       &kp TAB            &lt 1 LANGUAGE_2     &lt 2 SPACE  &lt 6 LANGUAGE_1      &bspc_del      &lt 1 ENTER                                                            &kp DEL
+&mo 8            &caps_word       &kp TAB            &lt 1 LANGUAGE_2     &lt 2 SPACE  &lt 6 LANGUAGE_1      &bspc_del      &lt 1 ENTER                                                            &to JIS_DEFAULT_LAYER
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -217,7 +217,7 @@
 &kp Q            &kp W            &kp E              &kp R                &kp T                                             &kp Y        &kp U                &kp I               &kp O            &lt 5 P
 &mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F   &kp G        &kp LS(LG(S))         &kp HOME       &kp H        &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt 6 MINUS
 &kp Z            &kp X            &kp C              &kp V                &kp B        &kp ESC               &kp END        &kp N        &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo 8            &caps_word       &kp TAB            &lt 4 LANGUAGE_2     &lt 5 SPACE  &lt 6 LANGUAGE_1      &bspc_del      &lt 4 ENTER                                                            &kp DEL
+&mo 8            &caps_word       &kp TAB            &lt 4 LANGUAGE_2     &lt 5 SPACE  &lt 6 LANGUAGE_1      &bspc_del      &lt 4 ENTER                                                            &to US_DEFAULT_LAYER
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
