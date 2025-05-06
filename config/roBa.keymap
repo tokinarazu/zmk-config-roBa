@@ -286,7 +286,7 @@
 &kp ESC           &kp LG(SPACE)  &kp END        &kp LC(END)  &trans                               &trans         &kp HOME        &kp UP_ARROW    &kp END          &none
 &kp HOME          &kp LC(HOME)   &kp PAGE_UP    &kp LC(F3)   &kp LA(F5)  &trans      &trans       &kp BACKSPACE  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none
 &none             &none          &kp PAGE_DOWN  &none        &trans      &trans      &trans       &kp DEL        &mkp LCLK       &mkp MCLK       &mkp RCLK        &none
-&kp LEFT_CONTROL  &trans         &task_switch   &trans       &trans      &trans      &key_repeat  &trans                                                          &kp K_MUTE
+&kp LEFT_CONTROL  &trans         &kp LG(TAB)    &trans       &trans      &trans      &key_repeat  &trans                                                          &kp K_MUTE
             >;
         };
 
