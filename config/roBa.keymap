@@ -102,6 +102,16 @@
             bindings = <&kp EQUAL>;
             key-positions = <24 25>;
         };
+
+        alt_tab {
+            bindings = <&app_switch>;
+            key-positions = <11 36>;
+        };
+
+        win_tab {
+            bindings = <&task_switch>;
+            key-positions = <10 36>;
+        };
     };
 
     macros {
@@ -110,6 +120,34 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
+        };
+
+        app_switch: app_switch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <100>
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp TAB>
+                , <&macro_tap     &sk LALT>
+                , <&macro_release &kp LALT>
+                ;
+            label = "APP_SWITCH";
+        };
+
+        task_switch: task_switch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <100>
+            bindings
+                = <&macro_press   &kp LGUI>
+                , <&macro_tap     &kp TAB>
+                , <&macro_tap     &sk LGUI>
+                , <&macro_release &kp LGUI>
+                ;
+            label = "TASK_SWITCH";
         };
     };
 
