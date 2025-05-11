@@ -126,7 +126,7 @@
         tap_lang2_and_to_layer: tap_lang2_and_to_layer {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&kp LANGUAGE_2 &macro_param_1to1 &to MACRO_PLACEHOLDER>;
+            bindings = <&kp LANGUAGE_2 &macro_param_1to1 &mo MACRO_PLACEHOLDER>;
             label = "TAP_LANG2_AND_TO_LAYER";
         };
 
