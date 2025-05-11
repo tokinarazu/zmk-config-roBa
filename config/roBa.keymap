@@ -46,6 +46,7 @@
 #define JP_ASTERISK     DOUBLE_QUOTES     // *
 #define JP_BACKQUOTE    LEFT_BRACE        // `
 #define JP_UNDERSCORE   LS(0x87)          // _
+#define JP_GRAVE        LS(LEFT_BRACE)    // `
 #define JP_LBRACKET     RIGHT_BRACKET     // [
 #define JP_RBRACKET     BACKSLASH         // ]
 #define JP_LPAREN       ASTERISK          // (
@@ -122,6 +123,13 @@
             label = "TO_LAYER_0";
         };
 
+        tap_lang2_and_to_layer: tap_lang2_and_to_layer {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&kp LANGUAGE_2 &macro_param_1to1 &lt MACRO_PLACEHOLDER>;
+            label = "TAP_LANG2_AND_TO_LAYER";
+        };
+
         app_switch: app_switch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -156,6 +164,15 @@
             compatible = "zmk,behavior-hold-tap";
             display-name = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        to_layer_and_tap: to_layer_and_tap {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "TO_LAYER_AND_TAP";
+            bindings = <&tap_lang2_and_to_layer>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -221,10 +238,10 @@
 
         US_DEFAULT_LAYER {
             bindings = <
-&kp Q            &kp W            &kp E              &kp R                   &kp T                                                       &kp Y              &kp U                &kp I               &kp O            &lt US_SYMBOL P
-&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F      &kp G                 &kp LS(LG(S))             &kp HOME    &kp H              &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt MOUSE MINUS
-&kp Z            &kp X            &kp C              &kp V                   &kp B                 &kp ESC                   &kp END     &kp N              &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo FUNCTION     &caps_word       &kp TAB            &lt US_NUM LANGUAGE_2   &lt US_SYMBOL SPACE   &lt MOUSE LANGUAGE_1      &bspc_del   &lt US_NUM ENTER                                                             &to JIS_DEFAULT_LAYER
+&kp Q            &kp W            &kp E              &kp R                   &kp T                                                                     &kp Y              &kp U                &kp I               &kp O            &lt US_SYMBOL P
+&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F      &kp G                               &kp LS(LG(S))             &kp HOME    &kp H              &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt MOUSE MINUS
+&kp Z            &kp X            &kp C              &kp V                   &kp B                               &kp ESC                   &kp END     &kp N              &kp M                &kp COMMA           &kp DOT          &kp SLASH
+&mo FUNCTION     &caps_word       &kp TAB            &lt US_NUM LANGUAGE_2   &to_layer_and_tap US_SYMBOL SPACE   &lt MOUSE LANGUAGE_1      &bspc_del   &lt US_NUM ENTER                                                             &to JIS_DEFAULT_LAYER
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -232,17 +249,17 @@
 
         US_NUM {
             bindings = <
-&kp F6           &kp F7  &kp F8  &kp F9   &kp F10                                                 &kp COMMA          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
-&kp PRINTSCREEN  &kp F2  &kp F3  &kp F4   &kp F5   &kp LC(LA(KP_NUMBER_0))      &trans            &kp DOT            &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&trans           &trans  &trans  &kp F11  &kp F12  &trans                       &kp LEFT_CONTROL  &kp LS(SEMICOLON)  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp SLASH
-&trans           &trans  &trans  &trans   &trans   &trans                       &trans            &trans                                                       &kp F1
+&kp F6            &kp F7   &kp F8   &kp F9    &kp F10                                                   &kp COMMA      &kp NUMBER_7   &kp NUMBER_8   &kp NUMBER_9   &kp NUMBER_0
+&kp PRINTSCREEN   &kp F2   &kp F3   &kp F4    &kp F5    &kp LC(LA(KP_NUMBER_0))      &trans             &kp DOT        &kp NUMBER_4   &kp NUMBER_5   &kp NUMBER_6   &kp MINUS
+&trans            &trans   &trans   &kp F11   &kp F12   &trans                       &kp LEFT_CONTROL   &kp COLON      &kp NUMBER_1   &kp NUMBER_2   &kp NUMBER_3   &kp SLASH
+&trans            &trans   &trans   &trans    &trans    &trans                       &trans             &trans                                                      &kp F1
             >;
         };
 
         US_SYMBOL {
             bindings = <
 &kp QUESTION     &kp LESS_THAN   &kp GREATER_THAN  &kp SEMICOLON  &kp GRAVE                              &kp AMPERSAND  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp UNDERSCORE  &kp PERCENT
-&kp EXCLAMATION  &kp UNDERSCORE  &kp EQUAL         &kp PLUS       &kp SINGLE_QUOTE   &trans      &trans  &kp PIPE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp HASH
+&kp EXCLAMATION  &kp MINUS       &kp EQUAL         &kp PLUS       &kp SINGLE_QUOTE   &trans      &trans  &kp PIPE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp HASH
 &kp CARET        &kp SLASH       &kp ASTERISK      &kp BACKSLASH  &kp DOUBLE_QUOTES  &trans      &trans  &kp TILDE      &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR      &kp AT_SIGN
 &trans           &trans          &trans            &trans         &trans             &trans      &trans  &trans                                                                      &trans
             >;
@@ -252,10 +269,10 @@
 
         JIS_DEFAULT_LAYER {
             bindings = <
-&kp Q            &kp W            &kp E              &kp R                    &kp T                                                           &kp Y               &kp U                &kp I               &kp O            &lt JIS_SYMBOL P
-&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F       &kp G                  &kp LS(LG(S))             &kp HOME       &kp H               &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt MOUSE MINUS
-&kp Z            &kp X            &kp C              &kp V                    &kp B                  &kp ESC                   &kp END        &kp N               &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo FUNCTION     &caps_word       &kp TAB            &lt JIS_NUM LANGUAGE_2   &lt JIS_SYMBOL SPACE   &lt MOUSE LANGUAGE_1      &bspc_del      &lt JIS_NUM ENTER                                                             &to US_DEFAULT_LAYER
+&kp Q            &kp W            &kp E              &kp R                    &kp T                                                                         &kp Y               &kp U                &kp I               &kp O            &lt JIS_SYMBOL P
+&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F       &kp G                                &kp LS(LG(S))             &kp HOME       &kp H               &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt MOUSE MINUS
+&kp Z            &kp X            &kp C              &kp V                    &kp B                                &kp ESC                   &kp END        &kp N               &kp M                &kp COMMA           &kp DOT          &kp SLASH
+&mo FUNCTION     &caps_word       &kp TAB            &lt JIS_NUM LANGUAGE_2   &to_layer_and_tap JIS_SYMBOL SPACE   &lt MOUSE LANGUAGE_1      &bspc_del      &lt JIS_NUM ENTER                                                             &to US_DEFAULT_LAYER
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -263,19 +280,19 @@
 
         JIS_NUM {
             bindings = <
-&kp F6           &kp F7  &kp F8  &kp F9   &kp F10                                                 &kp COMMA          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
-&kp PRINTSCREEN  &kp F2  &kp F3  &kp F4   &kp F5   &kp LC(LA(KP_NUMBER_0))      &trans            &kp DOT            &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&trans           &trans  &trans  &kp F11  &kp F12  &trans                       &kp LEFT_CONTROL  &kp JP_COLON       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp SLASH
-&trans           &trans  &trans  &trans   &trans   &trans                       &trans            &trans                                                       &kp F1
+&kp F6            &kp F7   &kp F8   &kp F9    &kp F10                                                   &kp COMMA      &kp NUMBER_7   &kp NUMBER_8   &kp NUMBER_9   &kp NUMBER_0
+&kp PRINTSCREEN   &kp F2   &kp F3   &kp F4    &kp F5    &kp LC(LA(KP_NUMBER_0))      &trans             &kp DOT        &kp NUMBER_4   &kp NUMBER_5   &kp NUMBER_6   &kp MINUS
+&trans            &trans   &trans   &kp F11   &kp F12   &trans                       &kp LEFT_CONTROL   &kp JP_COLON   &kp NUMBER_1   &kp NUMBER_2   &kp NUMBER_3   &kp SLASH
+&trans            &trans   &trans   &trans    &trans    &trans                       &trans             &trans                                                      &kp F1
             >;
         };
 
         JIS_SYMBOL {
             bindings = <
-&kp QUESTION     &kp LESS_THAN      &kp GREATER_THAN  &kp SEMICOLON  &kp GRAVE                              &kp JP_AMPERSAND  &kp JP_LBRACKET       &kp JP_RBRACKET        &kp JP_UNDERSCORE  &kp PERCENT
-&kp EXCLAMATION  &kp JP_UNDERSCORE  &kp JP_EQUAL      &kp JP_PLUS    &kp JP_QUOTE       &trans      &trans  &kp JP_PIPE       &kp JP_LPAREN         &kp JP_RPAREN          &kp JP_COLON       &kp HASH
-&kp JP_CARET     &kp SLASH          &kp JP_ASTERISK   &kp BACKSLASH  &kp JP_DQUOTE      &trans      &trans  &kp JP_TILDE      &kp JP_LBRACE         &kp JP_RBRACE          &kp DOLLAR         &kp JP_AT
-&trans           &trans             &trans            &trans         &trans             &trans      &trans  &trans                                                                            &trans
+&kp QUESTION     &kp LESS_THAN   &kp GREATER_THAN  &kp SEMICOLON  &kp JP_GRAVE                        &kp JP_AMPERSAND  &kp JP_LBRACKET  &kp JP_RBRACKET  &kp JP_UNDERSCORE  &kp PERCENT
+&kp EXCLAMATION  &kp MINUS       &kp JP_EQUAL      &kp JP_PLUS    &kp JP_QUOTE    &trans      &trans  &kp JP_PIPE       &kp JP_LPAREN    &kp JP_RPAREN    &kp JP_COLON       &kp HASH
+&kp JP_CARET     &kp SLASH       &kp JP_ASTERISK   &kp JP_YEN     &kp JP_DQUOTE   &trans      &trans  &kp JP_TILDE      &kp JP_LBRACE    &kp JP_RBRACE    &kp DOLLAR         &kp JP_AT
+&trans           &trans          &trans            &trans         &trans          &trans      &trans  &trans                                                                 &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
