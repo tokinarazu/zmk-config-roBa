@@ -127,8 +127,12 @@
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings
-                = <&kp LANGUAGE_2>
-                , <&macro_param_1to1 &mo MACRO_PLACEHOLDER>
+                = <macro_tap &kp LANGUAGE_2>
+                , <&macro_param_1to1>
+                , <&macro_press &mo MACRO_PLACEHOLDER>
+                , <&macro_pause_for_release>
+                , <&macro_param_1to1>
+                , <&macro_release &mo MACRO_PLACEHOLDER>            
                 ;
             label = "TAP_LANG2_AND_TO_LAYER";
         };
