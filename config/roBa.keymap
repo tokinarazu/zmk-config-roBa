@@ -126,18 +126,32 @@
             label = "TO_LAYER_0";
         };
 
-        tap_lang2_and_to_layer: tap_lang2_and_to_layer {
+        lt_to_us_default_layer_and_mo: lt_to_us_default_layer_and_mo {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings
-                = <&macro_tap &kp LANGUAGE_2>
+                = <&macro_tap &to US_DEFAULT_LAYER>
                 , <&macro_param_1to1>
                 , <&macro_press &mo MACRO_PLACEHOLDER>
                 , <&macro_pause_for_release>
                 , <&macro_param_1to1>
                 , <&macro_release &mo MACRO_PLACEHOLDER>            
                 ;
-            label = "TAP_LANG2_AND_TO_LAYER";
+            label = "LT_TO_US_DELAULT_LAYER_AND_MO";
+        };
+
+        lt_to_jis_default_layer_and_mo: lt_to_jis_default_layer_and_mo {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings
+                = <&macro_tap &to JIS_DEFAULT_LAYER>
+                , <&macro_param_1to1>
+                , <&macro_press &mo MACRO_PLACEHOLDER>
+                , <&macro_pause_for_release>
+                , <&macro_param_1to1>
+                , <&macro_release &mo MACRO_PLACEHOLDER>            
+                ;
+            label = "LT_TO_US_DELAULT_LAYER_AND_MO";
         };
 
         app_switch: app_switch {
@@ -179,10 +193,19 @@
             tapping-term-ms = <200>;
         };
 
-        to_layer_and_tap: to_layer_and_tap {
+        us_lt_aml: us_lt_aml {
             compatible = "zmk,behavior-hold-tap";
-            display-name = "TO_LAYER_AND_TAP";
-            bindings = <&tap_lang2_and_to_layer>, <&kp>;
+            display-name = "US_LT_AML";
+            bindings = <&lt_to_us_default_layer_and_mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+        };
+
+        jis_lt_aml: jis_lt_aml {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "JIS_LT_AML";
+            bindings = <&lt_to_jis_default_layer_and_mo>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <170>;
@@ -261,7 +284,7 @@
 &kp Q            &kp W            &kp E              &kp R                   &kp T                                                                     &kp Y              &kp U                &kp I               &kp O            &lt US_SYMBOL P
 &mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F      &kp G                               &kp LS(LG(S))             &kp HOME    &kp H              &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt MOUSE MINUS
 &kp Z            &kp X            &kp C              &kp V                   &kp B                               &kp ESC                   &kp END     &kp N              &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo FUNCTION     &caps_word       &kp TAB            &lt US_NUM LANGUAGE_2   &to_layer_and_tap US_SYMBOL SPACE   &lt MOUSE LANGUAGE_1      &bspc_del   &lt US_NUM ENTER                                                             &to JIS_DEFAULT_LAYER
+&mo FUNCTION     &caps_word       &kp TAB            &lt US_NUM LANGUAGE_2   &us_lt_aml US_SYMBOL SPACE          &lt MOUSE LANGUAGE_1      &bspc_del   &lt US_NUM ENTER                                                             &to JIS_DEFAULT_LAYER
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -292,7 +315,7 @@
 &kp Q            &kp W            &kp E              &kp R                    &kp T                                                                         &kp Y               &kp U                &kp I               &kp O            &lt JIS_SYMBOL P
 &mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F       &kp G                                &kp LS(LG(S))             &kp HOME       &kp H               &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt MOUSE MINUS
 &kp Z            &kp X            &kp C              &kp V                    &kp B                                &kp ESC                   &kp END        &kp N               &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo FUNCTION     &caps_word       &kp TAB            &lt JIS_NUM LANGUAGE_2   &to_layer_and_tap JIS_SYMBOL SPACE   &lt MOUSE LANGUAGE_1      &bspc_del      &lt JIS_NUM ENTER                                                             &to US_DEFAULT_LAYER
+&mo FUNCTION     &caps_word       &kp TAB            &lt JIS_NUM LANGUAGE_2   &jis_lt_aml JIS_SYMBOL SPACE         &lt MOUSE LANGUAGE_1      &bspc_del      &lt JIS_NUM ENTER                                                             &to US_DEFAULT_LAYER
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
