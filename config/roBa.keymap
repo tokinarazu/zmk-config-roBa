@@ -5,7 +5,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 // #includeのあとのあたりにスクロール量変更の定義を追記
-
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
 #define LEFT_HAND_KEYS   \
@@ -62,13 +61,13 @@
 
 &mt {
     flavor = "balanced";
-    tapping-term-ms = <160>;
+    tapping-term-ms = <165>;
     quick-tap-ms = <0>;
 };
 
 &lt {
     flavor = "balanced";
-    tapping-term-ms = <160>;
+    tapping-term-ms = <165>;
     quick-tap-ms = <0>;
 };
 
@@ -126,7 +125,7 @@
             label = "TO_LAYER_0";
         };
 
-        lt_tog_aml_off_and_mo: lt_tog_aml_off_and_mo {
+        lt_aml_off_and_mo: lt_aml_off_and_mo {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings
@@ -137,7 +136,7 @@
                 , <&macro_param_1to1>
                 , <&macro_release &mo MACRO_PLACEHOLDER>            
                 ;
-            label = "LT_TOG_AML_OFF_AND_MO";
+            label = "LT_AML_OFF_AND_MO";
         };
 
         app_switch: app_switch {
@@ -176,16 +175,16 @@
             bindings = <&mo>, <&to_layer_0>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <165>;
         };
 
         lt_aml_off: lt_aml_off {
             compatible = "zmk,behavior-hold-tap";
             display-name = "LT_AML_OFF";
-            bindings = <&lt_tog_aml_off_and_mo>, <&kp>;
+            bindings = <&lt_aml_off_and_mo>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <170>;
+            tapping-term-ms = <165>;
         };
 
         bspc_del: backspace_delete {
