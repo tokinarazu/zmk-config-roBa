@@ -71,6 +71,10 @@
     quick-tap-ms = <0>;
 };
 
+&sl {
+    release-after-ms = <250>;  // ダブルクリックに必要な時間を設定
+};
+
 /*
 &mkp_input_listener {
     input-processors = <&zip_temp_layer MOUSE 250>;
@@ -137,6 +141,21 @@
                 , <&macro_release &mo MACRO_PLACEHOLDER>            
                 ;
             label = "LT_AML_OFF_AND_MO";
+        };
+
+        mkp_exit_AML: mkp_exit_AML {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings
+                = <&macro_press>
+                , <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>
+                , <&macro_pause_for_release>
+                , <&macro_relaese>
+                , <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>
+                , <&macro_tap>      
+                , <&sl MOUSE>
+                ;
+            label = "MKP_EXIT_AML";
         };
 
         app_switch: app_switch {
@@ -319,10 +338,10 @@
 
         MOUSE {
             bindings = <
-&kp ESC           &kp LG(SPACE)  &kp END        &kp LC(END)  &trans                               &trans         &kp HOME        &kp UP_ARROW    &kp END          &none
-&kp HOME          &kp LC(HOME)   &kp PAGE_UP    &kp LC(F3)   &kp LA(F5)  &trans      &trans       &kp BACKSPACE  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none
-&none             &none          &kp PAGE_DOWN  &none        &trans      &trans      &trans       &kp DEL        &mkp LCLK       &mkp MCLK       &mkp RCLK        &none
-&kp LEFT_CONTROL  &trans         &kp LG(TAB)    &trans       &trans      &trans      &key_repeat  &trans                                                          &kp K_MUTE
+&kp ESC           &kp LG(SPACE)  &kp END        &kp LC(END)  &trans                               &trans         &kp HOME             &kp UP_ARROW         &kp END              &none
+&kp HOME          &kp LC(HOME)   &kp PAGE_UP    &kp LC(F3)   &kp LA(F5)  &trans      &trans       &kp BACKSPACE  &kp LEFT_ARROW       &kp DOWN_ARROW       &kp RIGHT_ARROW      &none
+&none             &none          &kp PAGE_DOWN  &none        &trans      &trans      &trans       &kp DEL        &mkp_exit_AML LCLK   &mkp_exit_AML MCLK   &mkp_exit_AML RCLK   &none
+&kp LEFT_CONTROL  &trans         &kp LG(TAB)    &trans       &trans      &trans      &key_repeat  &trans                                                                        &kp K_MUTE
             >;
         };
 
