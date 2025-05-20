@@ -348,10 +348,10 @@
 
         MOUSE {
             bindings = <
-&none              &none            &none   &none   &none                      &none   &none                &none                &none                &none
+&trans             &none            &none   &none   &none                      &none   &none                &none                &none                &none
 &none              &none            &none   &none   &none   &none      &none   &none   &none                &none                &none                &none
-&none              &none            &none   &none   &none   &none      &none   &none   &mkp_exit_AML LCLK   &mkp_exit_AML MCLK   &mkp_exit_AML RCLK   &none   
-&kp LEFT_CONTROL   &kp LEFT_SHIFT   &none   &none   &none   &none      &none   &none                                                                  &none
+&none              &none            &none   &none   &none   &trans     &none   &none   &mkp_exit_AML LCLK   &mkp_exit_AML MCLK   &mkp_exit_AML RCLK   &none   
+&kp LEFT_CONTROL   &kp LEFT_SHIFT   &trans  &trans  &trans  &trans     &trans  &trans                                                                 &none
             >;
         };
 
