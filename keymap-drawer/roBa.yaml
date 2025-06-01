@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: roBa}
 layers:
-  '0':
+  US_DEFAULT_LAYER:
   - Q
   - W
   - E
@@ -22,7 +22,7 @@ layers:
   - {t: J, h: LEFT CONTROL}
   - {t: K, h: RIGHT SHIFT}
   - {t: L, h: LEFT ALT}
-  - {t: '-', h: '7'}
+  - {t: '-', h: ARROW}
   - Z
   - X
   - C
@@ -35,16 +35,16 @@ layers:
   - ','
   - .
   - /
-  - '8'
+  - FUNCTION
   - '&caps_word'
   - TAB
-  - {t: LANGUAGE 2, h: '3'}
+  - {t: LANGUAGE 2, h: US_NUM}
   - {t: SPACE, h: '&lt_aml_off_and_mo 4'}
-  - {t: LANGUAGE 1, h: '7'}
+  - {t: LANGUAGE 1, h: ARROW}
   - {t: BACKSPACE, s: DELETE}
-  - {t: ENTER, h: '3'}
+  - {t: ENTER, h: US_NUM}
   - '&to_jis_default_layer'
-  '1':
+  JIS_DEFAULT_LAYER:
   - Q
   - W
   - E
@@ -66,7 +66,7 @@ layers:
   - {t: J, h: LEFT CONTROL}
   - {t: K, h: RIGHT SHIFT}
   - {t: L, h: LEFT ALT}
-  - {t: '-', h: '7'}
+  - {t: '-', h: ARROW}
   - Z
   - X
   - C
@@ -79,16 +79,16 @@ layers:
   - ','
   - .
   - /
-  - '8'
+  - FUNCTION
   - '&caps_word'
   - TAB
-  - {t: LANGUAGE 2, h: '5'}
+  - {t: LANGUAGE 2, h: JIS_NUM}
   - {t: SPACE, h: '&lt_aml_off_and_mo 6'}
-  - {t: LANGUAGE 1, h: '7'}
+  - {t: LANGUAGE 1, h: ARROW}
   - {t: BACKSPACE, s: DELETE}
-  - {t: ENTER, h: '5'}
+  - {t: ENTER, h: JIS_NUM}
   - '&to_us_default_layer'
-  '2':
+  MOUSE:
   - ESC
   - ''
   - ''
@@ -132,7 +132,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''
-  '3':
+  US_NUM:
   - F6
   - F7
   - F8
@@ -176,7 +176,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - F1
-  '4':
+  US_SYMBOL:
   - '?'
   - <
   - '>'
@@ -220,7 +220,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  '5':
+  JIS_NUM:
   - F6
   - F7
   - F8
@@ -264,7 +264,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - F1
-  '6':
+  JIS_SYMBOL:
   - '?'
   - <
   - '>'
@@ -308,7 +308,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  '7':
+  ARROW:
   - ESC
   - Gui+SPACE
   - END
@@ -352,7 +352,7 @@ layers:
   - '&key_repeat'
   - {t: ▽, type: trans}
   - MUTE
-  '8':
+  FUNCTION:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
