@@ -25,6 +25,7 @@
 #define RIGHT_THUMB_KEYS \
                          40 41
 
+/*
 #define US_DEFAULT_LAYER 0
 #define US_NUM 1
 #define US_SYMBOL 2
@@ -33,6 +34,17 @@
 #define JIS_SYMBOL 5
 #define ARROW 6
 #define MOUSE 7
+#define FUNCTION 8
+*/
+
+#define US_DEFAULT_LAYER 0
+#define JIS_DEFAULT_LAYER 1
+#define MOUSE 2
+#define US_NUM 3
+#define US_SYMBOL 4
+#define JIS_NUM 5
+#define JIS_SYMBOL 6
+#define ARROW 7
 #define FUNCTION 8
 
 // OS設定を日本語キーボードのまま使用するための変換定義
@@ -160,6 +172,36 @@
             label = "MKP_EXIT_AML";
         };
 
+        to_us_default_layer: to_us_default_layer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap>
+                , <&tog_off JIS_DEFAULT_LAYER>
+                , <&tog_off JIS_NUM>
+                , <&tog_off JIS_SYMBOL>
+                , <&tog_on US_NUM>
+                , <&tog_on US_SYMBOL>
+                , <&to US_DEFAULT_LAYER>
+                ;
+            label = "TO_US_DEFAULT_LAYER";
+        };
+
+        to_jis_default_layer: to_jis_default_layer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap>
+                , <&tog_off US_NUM>
+                , <&tog_off US_SYMBOL>
+                , <&tog_on JIS_DEFAULT_LAYER>
+                , <&tog_on JIS_NUM>
+                , <&tog_on JIS_SYMBOL>
+                , <&to JIS_DEFAULT_LAYER>
+                ;
+            label = "TO_JIS_DEFAULT_LAYER";
+        };
+
         app_switch: app_switch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -281,10 +323,30 @@
 &kp Q            &kp W            &kp E              &kp R                   &kp T                                                               &kp Y              &kp U                &kp I               &kp O            &lt_aml_off US_SYMBOL P
 &mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F      &kp G                         &kp LS(LG(S))             &kp HOME    &kp H              &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt ARROW MINUS
 &kp Z            &kp X            &kp C              &kp V                   &kp B                         &kp ESC                   &kp END     &kp N              &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo FUNCTION     &caps_word       &kp TAB            &lt US_NUM LANGUAGE_2   &lt_aml_off US_SYMBOL SPACE   &lt ARROW LANGUAGE_1      &bspc_del   &lt US_NUM ENTER                                                             &to JIS_DEFAULT_LAYER
+&mo FUNCTION     &caps_word       &kp TAB            &lt US_NUM LANGUAGE_2   &lt_aml_off US_SYMBOL SPACE   &lt ARROW LANGUAGE_1      &bspc_del   &lt US_NUM ENTER                                                             &to_jis_default_layer
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
+        };
+
+        JIS_DEFAULT_LAYER {
+            bindings = <
+&kp Q            &kp W            &kp E              &kp R                    &kp T                                                                &kp Y               &kp U                &kp I               &kp O            &lt_aml_off JIS_SYMBOL P
+&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F       &kp G                          &kp LS(LG(S))             &kp HOME    &kp H               &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt ARROW MINUS
+&kp Z            &kp X            &kp C              &kp V                    &kp B                          &kp ESC                   &kp END     &kp N               &kp M                &kp COMMA           &kp DOT          &kp SLASH
+&mo FUNCTION     &caps_word       &kp TAB            &lt JIS_NUM LANGUAGE_2   &lt_aml_off JIS_SYMBOL SPACE   &lt ARROW LANGUAGE_1      &bspc_del   &lt JIS_NUM ENTER                                                             &to_us_default_layer
+            >;
+
+            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+        };
+
+        MOUSE {
+            bindings = <
+&kp ESC            &none            &none            &none              &none                      &none   &none                &none                &none                &trans
+&kp LEFT_GUI       &kp LEFT_ALT     &kp LEFT_SHIFT   &kp LEFT_CONTROL   &none   &none      &none   &none   &kp LEFT_CONTROL     &kp RIGHT_SHIFT      &none                &none
+&kp Z              &kp X            &kp C            &kp V              &none   &trans     &none   &none   &mkp_exit_AML LCLK   &mkp_exit_AML MCLK   &mkp_exit_AML RCLK   &none   
+&kp LEFT_CONTROL   &kp LEFT_SHIFT   &kp TAB          &tog_off MOUSE     &trans  &trans     &trans  &trans                                                                 &none
+            >;
         };
 
         US_NUM {
@@ -305,17 +367,6 @@
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
-        };
-
-        JIS_DEFAULT_LAYER {
-            bindings = <
-&kp Q            &kp W            &kp E              &kp R                    &kp T                                                                &kp Y               &kp U                &kp I               &kp O            &lt_aml_off JIS_SYMBOL P
-&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F       &kp G                          &kp LS(LG(S))             &kp HOME    &kp H               &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt ARROW MINUS
-&kp Z            &kp X            &kp C              &kp V                    &kp B                          &kp ESC                   &kp END     &kp N               &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo FUNCTION     &caps_word       &kp TAB            &lt JIS_NUM LANGUAGE_2   &lt_aml_off JIS_SYMBOL SPACE   &lt ARROW LANGUAGE_1      &bspc_del   &lt JIS_NUM ENTER                                                             &to US_DEFAULT_LAYER
-            >;
-
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
         JIS_NUM {
@@ -344,15 +395,6 @@
 &kp HOME          &kp LC(HOME)   &kp PAGE_UP    &kp LC(F3)   &kp LA(F5)  &trans      &trans       &kp BACKSPACE  &kp LEFT_ARROW   &kp DOWN_ARROW   &kp RIGHT_ARROW   &none
 &none             &none          &kp PAGE_DOWN  &none        &trans      &trans      &trans       &kp DEL        &none            &none            &none             &none
 &kp LEFT_CONTROL  &trans         &kp LG(TAB)    &trans       &trans      &trans      &key_repeat  &trans                                                             &kp K_MUTE
-            >;
-        };
-
-        MOUSE {
-            bindings = <
-&trans             &none            &none            &none              &none                      &none   &none                &none                &none                &lt_aml_off JIS_SYMBOL P
-&kp LEFT_GUI       &kp LEFT_ALT     &kp LEFT_SHIFT   &kp LEFT_CONTROL   &none   &none      &none   &none   &kp LEFT_CONTROL     &kp RIGHT_SHIFT      &none                &none
-&kp Z              &kp X            &kp C            &kp V              &none   &trans     &none   &none   &mkp_exit_AML LCLK   &mkp_exit_AML MCLK   &mkp_exit_AML RCLK   &none   
-&kp LEFT_CONTROL   &kp LEFT_SHIFT   &kp TAB          &tog_off MOUSE     &trans  &trans     &trans  &trans                                                                 &none
             >;
         };
 
