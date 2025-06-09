@@ -1,0 +1,21 @@
+#include "roba_L.keymap"
+#include "boards/shields/roBa/roba_R.overlay"
+
+&trackball {
+    automouse-layer = <L_MOUSE>;
+    scroll-layers = <L_US_SYMBOL L_JIS_SYMBOL>;
+    // snipe-layer = <3>;
+
+    arrows {
+        layers = <L_ARROW>;
+        bindings =
+            <&kp RIGHT_ARROW>,
+            <&kp LEFT_ARROW>,
+            <&kp UP_ARROW>,
+            <&kp DOWN_ARROW>;
+
+        tick = <10>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+    };
+};
