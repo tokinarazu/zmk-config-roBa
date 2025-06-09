@@ -1,5 +1,5 @@
-#include "roba_L.keymap"
-#include "boards/shields/roBa/roba_R.overlay"
+#include "roBa_L.keymap"
+#include "boards/shields/roBa/roBa_R.overlay"
 
 &trackball {
     automouse-layer = <L_MOUSE>;
