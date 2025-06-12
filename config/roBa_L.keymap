@@ -292,7 +292,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // combosやmacrosと同じ階層に以下のbihaviorsを追記
+        // combosやmacrosと同じ階層に以下のbehaviorsを追記
         // スクロール方向を逆にしたい場合は <&msc SCRL_DOWN> と <&msc SCRL_UP> を入れ替えてください
         encoder_msc_down_up: encoder_msc_down_up {
             compatible = "zmk,behavior-sensor-rotate";
@@ -331,7 +331,7 @@
         MOUSE {
             bindings = <
 &kp ESC            &none            &none            &none                &none                      &none   &none                &none                &none                &trans
-&kp LEFT_GUI       &kp LEFT_ALT     &kp LEFT_SHIFT   &kp LEFT_CONTROL     &none   &none      &none   &none   &kp LEFT_CONTROL     &kp RIGHT_SHIFT      &none                &none
+&kp LEFT_GUI       &kp LEFT_ALT     &kp LEFT_SHIFT   &kp LEFT_CONTROL     &none   &none      &none   &none   &kp LEFT_CONTROL     &kp RIGHT_SHIFT      &none                &trans
 &kp Z              &kp X            &kp C            &kp V                &none   &trans     &none   &none   &mkp_exit_AML LCLK   &mkp_exit_AML MCLK   &mkp_exit_AML RCLK   &none   
 &kp LEFT_CONTROL   &kp LEFT_SHIFT   &kp TAB          &tog_off L_MOUSE     &trans  &trans     &trans  &trans                                                                 &none
             >;
@@ -379,10 +379,10 @@
 
         ARROW {
             bindings = <
-&kp ESC           &kp LG(SPACE)  &kp END        &kp LC(END)  &trans                               &trans         &kp HOME         &kp UP_ARROW     &kp END           &none
-&kp HOME          &kp LC(HOME)   &kp PAGE_UP    &kp LC(F3)   &kp LA(F5)  &trans      &trans       &kp BACKSPACE  &kp LEFT_ARROW   &kp DOWN_ARROW   &kp RIGHT_ARROW   &none
-&none             &none          &kp PAGE_DOWN  &none        &trans      &trans      &trans       &kp DEL        &none            &none            &none             &none
-&kp LEFT_CONTROL  &trans         &kp LG(TAB)    &trans       &trans      &trans      &key_repeat  &trans                                                             &kp K_MUTE
+&kp ESC           &kp LG(SPACE)   &kp END        &kp LC(END)  &trans                               &trans         &kp HOME         &kp UP_ARROW     &kp END           &none
+&kp HOME          &kp LC(HOME)    &kp PAGE_UP    &kp LC(F3)   &kp LA(F5)  &trans      &trans       &kp BACKSPACE  &kp LEFT_ARROW   &kp DOWN_ARROW   &kp RIGHT_ARROW   &none
+&none             &none           &kp PAGE_DOWN  &none        &trans      &trans      &trans       &kp DEL        &none            &none            &none             &none
+&kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp LG(TAB)    &trans       &trans      &trans      &key_repeat  &trans                                                             &kp K_MUTE
             >;
         };
 
