@@ -294,11 +294,10 @@
 
         // combosやmacrosと同じ階層に以下のbehaviorsを追記
         // スクロール方向を逆にしたい場合は <&msc SCRL_DOWN> と <&msc SCRL_UP> を入れ替えてください
-        encoder_msc_down_up: encoder_msc_down_up {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCODER_MSC_DOWN_UP";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        mouse_wheel_scrl: mouse_wheel_scrl {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
             tap-ms = <20>;
         };
     };
@@ -314,7 +313,7 @@
 &mo L_FUNCTION   &caps_word       &kp TAB            &lt L_US_NUM LANGUAGE_2   &lt_aml_off L_US_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_US_NUM ENTER                                                             &to_jis_default_layer
             >;
 
-            sensor-bindings = <&encoder_msc_down_up>;
+            sensor-bindings = <&mouse_wheel_scrl SCRL_UP SCRL_DOWN>;
         };
 
         JIS_DEFAULT_LAYER {
@@ -325,7 +324,7 @@
 &mo L_FUNCTION   &caps_word       &kp TAB            &lt L_JIS_NUM LANGUAGE_2   &lt_aml_off L_JIS_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_JIS_NUM ENTER                                                             &to_us_default_layer
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&mouse_wheel_scrl SCRL_UP SCRL_DOWN>;
         };
 
         MOUSE {
@@ -335,6 +334,8 @@
 &kp Z              &kp X            &kp C            &kp V                &none   &trans     &none   &none   &mkp_exit_AML LCLK   &mkp_exit_AML MCLK   &mkp_exit_AML RCLK   &none   
 &kp LEFT_CONTROL   &kp LEFT_SHIFT   &kp TAB          &tog_off L_MOUSE     &trans  &trans     &trans  &trans                                                                 &none
             >;
+
+            sensor-bindings = <&mouse_wheel_scrl SCRL_UP SCRL_DOWN>;
         };
 
         US_NUM {
@@ -353,8 +354,6 @@
 &kp CARET        &kp SLASH       &kp ASTERISK      &kp BACKSLASH  &kp DOUBLE_QUOTES  &trans      &trans  &kp TILDE      &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR      &kp AT_SIGN
 &trans           &trans          &trans            &trans         &trans             &trans      &trans  &trans                                                                      &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
         JIS_NUM {
@@ -373,8 +372,6 @@
 &kp JP_CARET     &kp SLASH       &kp JP_ASTERISK   &kp JP_YEN     &kp JP_DQUOTE   &trans      &trans  &kp JP_TILDE      &kp JP_LBRACE    &kp JP_RBRACE    &kp DOLLAR         &kp JP_AT
 &trans           &trans          &trans            &trans         &trans          &trans      &trans  &trans                                                                 &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
         ARROW {
@@ -384,6 +381,8 @@
 &none             &none           &kp PAGE_DOWN  &none        &trans      &trans      &trans       &kp DEL        &none            &none            &none             &none
 &kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp LG(TAB)    &trans       &trans      &trans      &key_repeat  &trans                                                             &kp K_MUTE
             >;
+
+            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
         FUNCTION {
