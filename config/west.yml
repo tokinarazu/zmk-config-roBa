@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/kloir-z
     - name: caksoylar  # <-- new entry
       url-base: https://github.com/caksoylar
+    - name: tokinarazu
+      url-base: https://github.com/tokinarzu
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,5 +21,8 @@ manifest:
     - name: zmk-rgbled-widget  # <-- new entry
       remote: caksoylar
       revision: main
+    - name: zmk-layout-shift
+      remote: tokinarazu
+      revision: v1
   self:
     path: config
