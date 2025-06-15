@@ -26,12 +26,13 @@
 #define RIGHT_THUMB_KEYS \
                          40 41
 
-#define L_DEFAULT 0
-#define L_MOUSE 1
-#define L_NUM 2
-#define L_SYMBOL 3
-#define L_ARROW 4
-#define L_FUNCTION 5
+#define L_US_DEFAULT 0
+#define L_JIS_DEFAULT 1
+#define L_MOUSE 2
+#define L_NUM 3
+#define L_SYMBOL 4
+#define L_ARROW 5
+#define L_FUNCTION 6
 
 // OS設定を日本語キーボードのまま使用するための変換定義
 #define JP_DQUOTE       AT                // "
@@ -160,6 +161,7 @@
                 ;
             label = "MKP_EXIT_AML";
         };
+        */
 
         to_us_default_layer: to_us_default_layer {
             compatible = "zmk,behavior-macro";
@@ -167,11 +169,8 @@
             bindings
                 = <&macro_tap>
                 , <&tog_off L_JIS_DEFAULT>
-                , <&tog_off L_JIS_NUM>
-                , <&tog_off L_JIS_SYMBOL>
-                , <&tog_on L_US_NUM>
-                , <&tog_on L_US_SYMBOL>
                 , <&to L_US_DEFAULT>
+                , <tog_ls_off>
                 ;
             label = "TO_US_DEFAULT_LAYER";
         };
@@ -181,16 +180,12 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap>
-                , <&tog_off L_US_NUM>
-                , <&tog_off L_US_SYMBOL>
                 , <&tog_on L_JIS_DEFAULT>
-                , <&tog_on L_JIS_NUM>
-                , <&tog_on L_JIS_SYMBOL>
                 , <&to L_JIS_DEFAULT>
+                , <tog_ls_on>
                 ;
             label = "TO_JIS_DEFAULT_LAYER";
         };
-        */
 
         app_switch: app_switch {
             compatible = "zmk,behavior-macro";
@@ -299,12 +294,23 @@
     keymap {
         compatible = "zmk,keymap";
 
-        DEFAULT_LAYER {
+        US_DEFAULT_LAYER {
             bindings = <
 &kp Q            &kp W            &kp E              &kp R                  &kp T                                                                &kp Y             &kp U                &kp I               &kp O            &lt_aml_off L_SYMBOL P
 &mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F     &kp G                        &kp LS(LG(S))               &kp HOME    &kp H             &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt L_ARROW MINUS
 &kp Z            &kp X            &kp C              &kp V                  &kp B                        &kp ESC                     &kp END     &kp N             &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo L_FUNCTION   &caps_word       &kp TAB            &lt L_NUM LANGUAGE_2   &lt_aml_off L_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_NUM ENTER                                                             &tog_ls
+&mo L_FUNCTION   &caps_word       &kp TAB            &lt L_NUM LANGUAGE_2   &lt_aml_off L_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_NUM ENTER                                                             &to_jis_default_layer
+            >;
+
+            sensor-bindings = <&mouse_wheel_scrl SCRL_UP SCRL_DOWN>;
+        };
+
+        JIS_DEFAULT_LAYER {
+            bindings = <
+&kp Q            &kp W            &kp E              &kp R                  &kp T                                                                &kp Y             &kp U                &kp I               &kp O            &lt_aml_off L_SYMBOL P
+&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F     &kp G                        &kp LS(LG(S))               &kp HOME    &kp H             &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt L_ARROW MINUS
+&kp Z            &kp X            &kp C              &kp V                  &kp B                        &kp ESC                     &kp END     &kp N             &kp M                &kp COMMA           &kp DOT          &kp SLASH
+&mo L_FUNCTION   &caps_word       &kp TAB            &lt L_NUM LANGUAGE_2   &lt_aml_off L_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_NUM ENTER                                                             &to_us_default_layer
             >;
 
             sensor-bindings = <&mouse_wheel_scrl SCRL_UP SCRL_DOWN>;
