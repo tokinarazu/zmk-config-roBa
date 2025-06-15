@@ -2,7 +2,7 @@
 #include "boards/shields/roBa/roBa_R.overlay"
 
 &trackball {
-    automouse-layer = <L_MOUSE>;
+    // automouse-layer = <L_MOUSE>;
     scroll-layers = <L_SYMBOL>;
     // snipe-layer = <3>;
 
