@@ -23,6 +23,6 @@ manifest:
       revision: main
     - name: zmk-layout-shift
       remote: kot149
-      revision: v1
+      revision: v1-fix-config-zmk-behavior-metadata
   self:
     path: config
