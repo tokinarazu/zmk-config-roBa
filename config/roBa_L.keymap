@@ -170,7 +170,7 @@
                 = <&macro_tap>
                 , <&tog_off L_JIS_DEFAULT>
                 , <&to L_US_DEFAULT>
-                , <tog_ls_off>
+                , <&tog_ls_off>
                 ;
             label = "TO_US_DEFAULT_LAYER";
         };
@@ -182,7 +182,7 @@
                 = <&macro_tap>
                 , <&tog_on L_JIS_DEFAULT>
                 , <&to L_JIS_DEFAULT>
-                , <tog_ls_on>
+                , <&tog_ls_on>
                 ;
             label = "TO_JIS_DEFAULT_LAYER";
         };
