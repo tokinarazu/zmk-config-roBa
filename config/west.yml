@@ -9,7 +9,7 @@ manifest:
     - name: caksoylar  # <-- new entry
       url-base: https://github.com/caksoylar
     - name: tokinarazu
-      url-base: https://github.com/tokinarzu
+      url-base: https://github.com/tokinarazu
   projects:
     - name: zmk
       remote: zmkfirmware
