@@ -62,13 +62,13 @@
 &mt {
     flavor = "balanced";
     tapping-term-ms = <165>;
-    quick-tap-ms = <0>;
+    quick-tap-ms = <165>;
 };
 
 &lt {
     flavor = "balanced";
     tapping-term-ms = <165>;
-    quick-tap-ms = <0>;
+    quick-tap-ms = <165>;
 };
 
 /*
@@ -144,6 +144,24 @@
                 , <&macro_release &mo MACRO_PLACEHOLDER>            
                 ;
             label = "LT_AML_OFF_AND_MO";
+        };
+
+        exit_AML: exit_AML {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings = <&tog_off L_MOUSE>;
+            label = "exit_AML";
+        };
+
+        kp_exit_AML: kp_exit_AML {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &exit_AML>;
+            label = "KP_exit_AML";
         };
 
         /*
@@ -228,11 +246,10 @@
 
         lt_aml_off: lt_aml_off {
             compatible = "zmk,behavior-hold-tap";
-            display-name = "LT_AML_OFF";
-            bindings = <&lt_aml_off_and_mo>, <&kp>;
-
             #binding-cells = <2>;
+            bindings = <&lt_aml_off_and_mo>, <&kp>;
             tapping-term-ms = <165>;
+            display-name = "LT_AML_OFF";
         };
 
         bspc_del: backspace_delete {
@@ -255,6 +272,17 @@
             #binding-cells = <1>;
             display-name = "Toggle Layer Off";
             toggle-mode = "off";
+        };
+
+        mt_exit_AML_on_tap: mt_exit_AML_on_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_exit_AML_ON_TAP";
+            bindings = <&kp>, <&kp_exit_AML>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <165>;
+            flavor = "balanced";
+            quick-tap-ms = <165>;
         };
 
         hml: home_row_mod_left {
@@ -296,10 +324,10 @@
 
         US_DEFAULT_LAYER {
             bindings = <
-&kp Q            &kp W            &kp E              &kp R                  &kp T                                                                &kp Y             &kp U                &kp I               &kp O            &lt_aml_off L_SYMBOL P
-&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F     &kp G                        &kp LS(LG(S))               &kp HOME    &kp H             &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt L_ARROW MINUS
-&kp Z            &kp X            &kp C              &kp V                  &kp B                        &kp ESC                     &kp END     &kp N             &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo L_FUNCTION   &caps_word       &kp TAB            &lt L_NUM LANGUAGE_2   &lt_aml_off L_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_NUM ENTER                                                             &to_jis_default_layer
+&kp Q            &kp W            &kp E                              &kp R                                &kp T                                                                &kp Y             &kp U                                &kp I                               &kp O            &lt_aml_off L_SYMBOL P
+&mt LEFT_GUI A   &mt LEFT_ALT S   &mt_exit_AML_on_tap LEFT_SHIFT D   &mt_exit_AML_on_tap LEFT_CONTROL F   &kp G                        &kp LS(LG(S))               &kp HOME    &kp H             &mt_exit_AML_on_tap LEFT_CONTROL J   &mt_exit_AML_on_tap RIGHT_SHIFT K   &mt LEFT_ALT L   &lt L_ARROW MINUS
+&kp Z            &kp X            &kp C                              &kp V                                &kp B                        &kp ESC                     &kp END     &kp N             &kp M                                &kp COMMA                           &kp DOT          &kp SLASH
+&mo L_FUNCTION   &caps_word       &kp TAB                            &lt L_NUM LANGUAGE_2                 &lt_aml_off L_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_NUM ENTER                                                                                             &to_jis_default_layer
             >;
 
             sensor-bindings = <&mouse_wheel_scrl SCRL_UP SCRL_DOWN>;
@@ -307,10 +335,10 @@
 
         JIS_DEFAULT_LAYER {
             bindings = <
-&kp Q            &kp W            &kp E              &kp R                  &kp T                                                                &kp Y             &kp U                &kp I               &kp O            &lt_aml_off L_SYMBOL P
-&mt LEFT_GUI A   &mt LEFT_ALT S   &mt LEFT_SHIFT D   &mt LEFT_CONTROL F     &kp G                        &kp LS(LG(S))               &kp HOME    &kp H             &mt LEFT_CONTROL J   &mt RIGHT_SHIFT K   &mt LEFT_ALT L   &lt L_ARROW MINUS
-&kp Z            &kp X            &kp C              &kp V                  &kp B                        &kp ESC                     &kp END     &kp N             &kp M                &kp COMMA           &kp DOT          &kp SLASH
-&mo L_FUNCTION   &caps_word       &kp TAB            &lt L_NUM LANGUAGE_2   &lt_aml_off L_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_NUM ENTER                                                             &to_us_default_layer
+&kp Q            &kp W            &kp E                              &kp R                                &kp T                                                                &kp Y             &kp U                                &kp I                               &kp O            &lt_aml_off L_SYMBOL P
+&mt LEFT_GUI A   &mt LEFT_ALT S   &mt_exit_AML_on_tap LEFT_SHIFT D   &mt_exit_AML_on_tap LEFT_CONTROL F   &kp G                        &kp LS(LG(S))               &kp HOME    &kp H             &mt_exit_AML_on_tap LEFT_CONTROL J   &mt_exit_AML_on_tap RIGHT_SHIFT K   &mt LEFT_ALT L   &lt L_ARROW MINUS
+&kp Z            &kp X            &kp C                              &kp V                                &kp B                        &kp ESC                     &kp END     &kp N             &kp M                                &kp COMMA                           &kp DOT          &kp SLASH
+&mo L_FUNCTION   &caps_word       &kp TAB                            &lt L_NUM LANGUAGE_2                 &lt_aml_off L_SYMBOL SPACE   &lt L_ARROW LANGUAGE_1      &bspc_del   &lt L_NUM ENTER                                                                                             &to_us_default_layer
             >;
 
             sensor-bindings = <&mouse_wheel_scrl SCRL_UP SCRL_DOWN>;
