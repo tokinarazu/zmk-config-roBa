@@ -1,0 +1,310 @@
+layout: {zmk_keyboard: roBa_L}
+layers:
+  US_DEFAULT_LAYER:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - {t: P, h: SYMBOL}
+  - {t: A, h: LEFT GUI}
+  - {t: S, h: LEFT ALT}
+  - {t: '&kp_exit_AML D', h: LEFT SHIFT}
+  - {t: '&kp_exit_AML F', h: LEFT CONTROL}
+  - G
+  - Sft+Gui+S
+  - HOME
+  - H
+  - {t: '&kp_exit_AML J', h: LEFT CONTROL}
+  - {t: '&kp_exit_AML K', h: RIGHT SHIFT}
+  - {t: L, h: LEFT ALT}
+  - {t: '-', h: ARROW}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - ESC
+  - END
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - FUNCTION
+  - '&caps_word'
+  - TAB
+  - {t: LANGUAGE 2, h: NUM}
+  - {t: SPACE, h: SYMBOL}
+  - {t: LANGUAGE 1, h: ARROW}
+  - {t: BACKSPACE, s: DELETE}
+  - {t: ENTER, h: NUM}
+  - '&to_jis_default_layer'
+  JIS_DEFAULT_LAYER:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - {t: P, h: SYMBOL}
+  - {t: A, h: LEFT GUI}
+  - {t: S, h: LEFT ALT}
+  - {t: '&kp_exit_AML D', h: LEFT SHIFT}
+  - {t: '&kp_exit_AML F', h: LEFT CONTROL}
+  - G
+  - Sft+Gui+S
+  - HOME
+  - H
+  - {t: '&kp_exit_AML J', h: LEFT CONTROL}
+  - {t: '&kp_exit_AML K', h: RIGHT SHIFT}
+  - {t: L, h: LEFT ALT}
+  - {t: '-', h: ARROW}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - ESC
+  - END
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - FUNCTION
+  - '&caps_word'
+  - TAB
+  - {t: LANGUAGE 2, h: NUM}
+  - {t: SPACE, h: SYMBOL}
+  - {t: LANGUAGE 1, h: ARROW}
+  - {t: BACKSPACE, s: DELETE}
+  - {t: ENTER, h: NUM}
+  - '&to_us_default_layer'
+  MOUSE:
+  - ESC
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&mkp LCLK'
+  - '&mkp MCLK'
+  - '&mkp RCLK'
+  - {t: ▽, type: trans}
+  - LEFT CONTROL
+  - LEFT SHIFT
+  - {t: ▽, type: trans}
+  - '&tog_off 2'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  NUM:
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - ','
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - PRINTSCREEN
+  - F2
+  - F3
+  - F4
+  - F5
+  - Ctl+Alt+KP 0
+  - {t: ▽, type: trans}
+  - .
+  - '4'
+  - '5'
+  - '6'
+  - '-'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - F11
+  - F12
+  - {t: ▽, type: trans}
+  - LEFT CONTROL
+  - ':'
+  - '1'
+  - '2'
+  - '3'
+  - /
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - F1
+  SYMBOL:
+  - '?'
+  - <
+  - '>'
+  - ;
+  - '`'
+  - '&'
+  - '['
+  - ']'
+  - _
+  - {t: '%', type: held}
+  - '!'
+  - '-'
+  - '='
+  - +
+  - ''''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '|'
+  - (
+  - )
+  - ':'
+  - '#'
+  - ^
+  - /
+  - '*'
+  - \
+  - '"'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '~'
+  - '{'
+  - '}'
+  - $
+  - '@'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  ARROW:
+  - ESC
+  - Gui+SPACE
+  - END
+  - Ctl+END
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - HOME
+  - UP ARROW
+  - END
+  - ''
+  - HOME
+  - Ctl+HOME
+  - PAGE UP
+  - Ctl+F3
+  - Alt+F5
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - BACKSPACE
+  - LEFT ARROW
+  - DOWN ARROW
+  - RIGHT ARROW
+  - {type: held}
+  - ''
+  - ''
+  - PAGE DOWN
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - DEL
+  - ''
+  - ''
+  - ''
+  - ''
+  - LEFT CONTROL
+  - LEFT SHIFT
+  - Gui+TAB
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&key_repeat'
+  - {t: ▽, type: trans}
+  - MUTE
+  FUNCTION:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&bootloader'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - BT CLR
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - BT CLR ALL
