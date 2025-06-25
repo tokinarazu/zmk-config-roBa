@@ -118,7 +118,7 @@
     };
 };
 
-&sp10 {
+&spi0 {
     status = "disabled";
 
     trackball: trackball@0 {
