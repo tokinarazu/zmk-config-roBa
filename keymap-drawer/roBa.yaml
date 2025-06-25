@@ -10,17 +10,17 @@ layers:
   - U
   - I
   - O
-  - {t: P, h: '&lt_aml_off_and_mo 4'}
+  - {t: P, h: SYMBOL}
   - {t: A, h: LEFT GUI}
   - {t: S, h: LEFT ALT}
-  - {t: D, h: LEFT SHIFT}
-  - {t: F, h: LEFT CONTROL}
+  - {t: '&kp_exit_AML D', h: LEFT SHIFT}
+  - {t: '&kp_exit_AML F', h: LEFT CONTROL}
   - G
   - Sft+Gui+S
   - HOME
   - H
-  - {t: J, h: LEFT CONTROL}
-  - {t: K, h: RIGHT SHIFT}
+  - {t: '&kp_exit_AML J', h: LEFT CONTROL}
+  - {t: '&kp_exit_AML K', h: RIGHT SHIFT}
   - {t: L, h: LEFT ALT}
   - {t: '-', h: ARROW}
   - Z
@@ -38,11 +38,11 @@ layers:
   - FUNCTION
   - '&caps_word'
   - TAB
-  - {t: LANGUAGE 2, h: US_NUM}
-  - {t: SPACE, h: '&lt_aml_off_and_mo 4'}
+  - {t: LANGUAGE 2, h: NUM}
+  - {t: SPACE, h: SYMBOL}
   - {t: LANGUAGE 1, h: ARROW}
   - {t: BACKSPACE, s: DELETE}
-  - {t: ENTER, h: US_NUM}
+  - {t: ENTER, h: NUM}
   - '&to_jis_default_layer'
   JIS_DEFAULT_LAYER:
   - Q
@@ -54,17 +54,17 @@ layers:
   - U
   - I
   - O
-  - {t: P, h: '&lt_aml_off_and_mo 6'}
+  - {t: P, h: SYMBOL}
   - {t: A, h: LEFT GUI}
   - {t: S, h: LEFT ALT}
-  - {t: D, h: LEFT SHIFT}
-  - {t: F, h: LEFT CONTROL}
+  - {t: '&kp_exit_AML D', h: LEFT SHIFT}
+  - {t: '&kp_exit_AML F', h: LEFT CONTROL}
   - G
   - Sft+Gui+S
   - HOME
   - H
-  - {t: J, h: LEFT CONTROL}
-  - {t: K, h: RIGHT SHIFT}
+  - {t: '&kp_exit_AML J', h: LEFT CONTROL}
+  - {t: '&kp_exit_AML K', h: RIGHT SHIFT}
   - {t: L, h: LEFT ALT}
   - {t: '-', h: ARROW}
   - Z
@@ -82,57 +82,57 @@ layers:
   - FUNCTION
   - '&caps_word'
   - TAB
-  - {t: LANGUAGE 2, h: JIS_NUM}
-  - {t: SPACE, h: '&lt_aml_off_and_mo 6'}
+  - {t: LANGUAGE 2, h: NUM}
+  - {t: SPACE, h: SYMBOL}
   - {t: LANGUAGE 1, h: ARROW}
   - {t: BACKSPACE, s: DELETE}
-  - {t: ENTER, h: JIS_NUM}
+  - {t: ENTER, h: NUM}
   - '&to_us_default_layer'
   MOUSE:
   - ESC
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
   - {t: ▽, type: trans}
-  - LEFT GUI
-  - LEFT ALT
-  - LEFT SHIFT
-  - LEFT CONTROL
-  - ''
-  - ''
-  - ''
-  - ''
-  - LEFT CONTROL
-  - RIGHT SHIFT
-  - ''
-  - ''
-  - Z
-  - X
-  - C
-  - V
-  - ''
   - {t: ▽, type: trans}
-  - ''
-  - ''
-  - '&mkp_exit_AML LCLK'
-  - '&mkp_exit_AML MCLK'
-  - '&mkp_exit_AML RCLK'
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&mkp LCLK'
+  - '&mkp MCLK'
+  - '&mkp RCLK'
+  - {t: ▽, type: trans}
   - LEFT CONTROL
   - LEFT SHIFT
-  - TAB
+  - {t: ▽, type: trans}
   - '&tog_off 2'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
-  US_NUM:
+  - {t: ▽, type: trans}
+  NUM:
   - F6
   - F7
   - F8
@@ -176,7 +176,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - F1
-  US_SYMBOL:
+  SYMBOL:
   - '?'
   - <
   - '>'
@@ -186,7 +186,7 @@ layers:
   - '['
   - ']'
   - _
-  - '%'
+  - {t: '%', type: held}
   - '!'
   - '-'
   - '='
@@ -211,94 +211,6 @@ layers:
   - '}'
   - $
   - '@'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  JIS_NUM:
-  - F6
-  - F7
-  - F8
-  - F9
-  - F10
-  - ','
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - PRINTSCREEN
-  - F2
-  - F3
-  - F4
-  - F5
-  - Ctl+Alt+KP 0
-  - {t: ▽, type: trans}
-  - .
-  - '4'
-  - '5'
-  - '6'
-  - '-'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - F11
-  - F12
-  - {t: ▽, type: trans}
-  - LEFT CONTROL
-  - ''''
-  - '1'
-  - '2'
-  - '3'
-  - /
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - F1
-  JIS_SYMBOL:
-  - '?'
-  - <
-  - '>'
-  - ;
-  - Sft+{
-  - ^
-  - ']'
-  - \
-  - Sft+0x87
-  - '%'
-  - '!'
-  - '-'
-  - _
-  - ':'
-  - '&'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Sft+0x89
-  - '*'
-  - (
-  - ''''
-  - '#'
-  - '='
-  - /
-  - '"'
-  - '0x89'
-  - '@'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - +
-  - '}'
-  - '|'
-  - $
-  - '['
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -344,7 +256,7 @@ layers:
   - ''
   - ''
   - LEFT CONTROL
-  - {t: ▽, type: trans}
+  - LEFT SHIFT
   - Gui+TAB
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -396,18 +308,3 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - BT CLR ALL
-combos:
-- p: [11, 12]
-  k: TAB
-- p: [12, 13]
-  k: Sft+TAB
-- p: [11, 10]
-  k: '&to_layer_0 INT_MUHENKAN'
-- p: [20, 21]
-  k: '"'
-- p: [24, 25]
-  k: '='
-- p: [11, 36]
-  k: '&app_switch'
-- p: [10, 36]
-  k: '&task_switch'
